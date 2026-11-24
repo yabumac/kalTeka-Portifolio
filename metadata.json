@@ -1,0 +1,8 @@
+{
+  "name": "Kalkidan Teka — TikTok Video Editor",
+  "description": "Personal portfolio of Kalkidan Teka, a professional video editor specializing in high-retention TikTok videos, kinetic motion graphics, sound design, and color grading.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

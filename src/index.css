@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-obsidian: #0A0A0A;
+  --color-surface: #141414;
+  --color-surface-hover: #1A1A1A;
+  --color-hairline: #242424;
+  --color-crimson: #FF3B30;
+  --color-crimson-hover: #E02E24;
+}
+
+@layer base {
+  html {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    letter-spacing: 0.01em;
+    scroll-padding-top: 5.5rem;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 34s linear infinite;
+}
+
+@keyframes ken-burns-slow {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate3d(-1.2%, -0.8%, 0);
+  }
+  100% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns-slow 12s ease-in-out infinite;
+}
+
+@keyframes eq-bar {
+  0%, 100% {
+    transform: scaleY(0.28);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-eq-1 {
+  animation: eq-bar 0.72s ease-in-out infinite;
+}
+.animate-eq-2 {
+  animation: eq-bar 0.56s ease-in-out infinite 0.12s;
+}
+.animate-eq-3 {
+  animation: eq-bar 0.84s ease-in-out infinite 0.24s;
+}
+.animate-eq-4 {
+  animation: eq-bar 0.64s ease-in-out infinite 0.08s;
+}
+
+/* Flat S-Log3 / ungraded look for the interactive color grading comparison */
+.raw-log-grade {
+  filter: saturate(0.28) contrast(0.76) brightness(1.07) sepia(0.08);
+}
+
+.final-cinema-grade {
+  filter: saturate(1.16) contrast(1.08) brightness(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-ken-burns,
+  .animate-eq-1,
+  .animate-eq-2,
+  .animate-eq-3,
+  .animate-eq-4 {
+    animation: none;
+  }
+}
